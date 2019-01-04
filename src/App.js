@@ -4,26 +4,18 @@ import './App.css';
 
 class App extends Component {
 
-    prueba() {
-        return <h1>Esto es otra prueba</h1>
+    constructor(props) {
+        super(props);
+        this.state = {count: 0};
     }
-  render() {
-      let value= "Alberto";
-      let valerio= 2+2;
-      let user= {
-        "name": "Alberto",
-          "lastname": "Cuadrado"
-      };
-      let elemento= <h1>Prueba</h1>;
-    return (
-      <div>
-        <h1>Mi primera aplicacion. {value}. {valerio}. {user.lastname}</h1>
-          {elemento}
-        <p>Probando cositas en react</p>
-          {this.prueba()}
-      </div>
-    );
-  }
+
+    increment() {
+        this.setState({count: this.state.count + 1})
+    }
+
+    render() {
+        return <div onClick={() => this.increment()}>Pulsame -> {this.state.count} </div>
+    }
 }
 
 export default App;
